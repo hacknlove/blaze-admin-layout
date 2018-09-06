@@ -1,0 +1,37 @@
+<template name="hnlAdminLayout">
+  <div class="hnl-principal {{sinDerecha}} {{sinIzquierda}}">
+    {{#if superiorTemplate}}
+      <div class="hnl-superior">
+        {{> Template.dynamic template=superiorTemplate data=superiorData}}
+      </div>
+    {{/if}}
+    {{#if izquierdaTemplate}}
+      <div class="hnl-izquierda">
+        <button class="colapsar"><span></span>
+          <i class="material-icons colapsado">chevron_left</i>
+          <i class="material-icons abierto">chevron_right</i>
+        </button>
+        {{> Template.dynamic template=izquierdaTemplate data=izquierdaData}}
+      </div>
+    {{/if}}
+    {{#if derechaTemplate}}
+      <div class="hnl-derecha">
+        <button class="colapsar"><span></span>
+          <i class="material-icons abierto">chevron_left</i>
+          <i class="material-icons colapsado">chevron_right</i>
+        </button>
+        {{> Template.dynamic template=derechaTemplate data=derechaData}}
+      </div>
+    {{/if}}
+    {{#if contenidoTemplate}}
+      <div class="hnl-contenido">
+        {{> Template.dynamic template=contenidoTemplate data=contenidoData}}
+      </div>
+    {{/if}}
+    {{#if inferiorTemplate}}
+      <div class="hnl-inferior">
+        {{> Template.dynamic template=inferiorTemplate data=inferiorData}}
+      </div>
+    {{/if}}
+  </div>
+</template>

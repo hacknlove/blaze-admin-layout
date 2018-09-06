@@ -1,0 +1,159 @@
+body {
+  overflow-x: hidden;
+}
+body>.hnl-principal {
+  display: grid;
+  min-height: 100vh;
+  width: 100vw;
+  grid-template-columns: 200px 1fr 200px;
+  grid-template-areas: "izquierda superior derecha" "izquierda contenido derecha" "izquierda inferior derecha";
+  grid-template-rows: 60px 1fr;
+  transition: width .3s ease-out, margin-left .3s ease-out;
+  &.izquierdaColapsada {
+    width: ~"calc(100vw + 150px)";
+    margin-left: -150px;
+    .hnl-izquierda {
+      button.colapsar>i {
+        &.abierto {
+          display: block;
+        }
+        &.colapsado {
+          display: none;
+        }
+      }
+    }
+  }
+  &.derechaColapsada {
+    width: ~"calc(100vw + 150px)";
+    margin-right: -150px;
+    .hnl-derecha {
+      button.colapsar>i {
+        &.abierto {
+          display: block;
+        }
+        &.colapsado {
+          display: none;
+        }
+      }
+    }
+  }
+  &.izquierdaColapsada.derechaColapsada {
+    width: ~"calc(100vw + 300px)";
+  }
+  .hnl-superior {
+    &>div {
+      height: 100%;
+    }
+    grid-area: superior;
+  }
+  .hnl-izquierda {
+    grid-area: izquierda;
+  }
+  .hnl-derecha {
+    grid-area: derecha;
+  }
+  .hnl-izquierda, .hnl-derecha {
+    background: rgba(255,255,255,.1);
+    transition: all 0.3s ease-out;
+    display: flex;
+    flex-direction: column;
+    button, a.boton {
+      text-decoration: none;
+      text-align: center;
+      margin: 0;
+      padding: 8px 0;
+      border: 0;
+      background: white;
+      color: black;
+      display: grid;
+      grid-template-columns: 1fr 50px;
+      cursor: pointer;
+      border-bottom: 1px solid #ddd;
+      transition: background .3s ease-out, white .3s ease-out;
+      grid-template-areas: "texto icono";
+      span {
+        text-align: right;
+        font-family: sans-serif;
+        grid-area: texto;
+      }
+      i {
+        grid-area: icono;
+      }
+      &:hover, &.active {
+        background: black;
+        color: white;
+      }
+      &:active {
+        padding: 9px 0 7px;
+      }
+    }
+    button.colapsar>i {
+      &.abierto {
+        display: none;
+      }
+      &.colapsado {
+        display: block;
+      }
+    }
+  }
+  .hnl-derecha {
+    button, a.boton {
+      grid-template-columns: 50px 1fr;
+      grid-template-areas: "icono texto";
+      span {
+        text-align: left;
+      }
+    }
+  }
+  .hnl-contenido {
+    grid-area: contenido;
+  }
+  .hnl-inferior {
+    grid-area: inferior;
+    border-top: 1px solid #ddd;
+  }
+
+  &.hnl-principal.izquierdaColapsada>.hnl-izquierda:hover {
+    transform: translateX(150px);
+  }
+  &.hnl-principal.derechaColapsada>.hnl-derecha:hover {
+    transform: translateX(-150px);
+  }
+
+}
+
+
+
+#menuVerticalIzquierdo, #menuVerticalDerecho {
+  display: flex;
+  flex-direction: column;
+
+
+  button {
+    padding: 8px 0;
+    border: 0;
+    background: white;
+    color: black;
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    transition: background .3s ease-out, white .3s ease-out;
+    grid-template-areas: "texto icono";
+    span {
+      text-align: right;
+      font-family: sans-serif;
+      grid-area: texto;
+    }
+    i {
+      grid-area: icono;
+    }
+    &:hover {
+      background: black;
+      color: white;
+    }
+    &:active {
+      padding: 9px 0 7px;
+    }
+  }
+}
