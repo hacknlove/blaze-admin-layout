@@ -2,7 +2,7 @@
 
 Package.describe({
   name: 'hacknlove:blaze-admin-layout',
-  version: '0.0.1',
+  version: '0.0.2',
   // Brief, one-line summary of the package.
   summary: 'Es un helper para montar el layout y las rutas de un panel de administracións',
   // URL to the Git repository containing the source code for this package.
@@ -13,9 +13,9 @@ Package.describe({
 })
 
 Package.onUse(function (api) {
-  api.versionsFrom('1.7.0.5')
+  api.versionsFrom('1.4')
   api.use('ecmascript')
-  api.use('templating@1.0.0', 'client')
+  api.use('templating', 'client')
   api.use('less', 'client')
   api.addFiles('./hnlAdminLayout.html', 'client')
   api.addFiles('./hnlAdminLayout.less', 'client')
