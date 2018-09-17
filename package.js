@@ -4,7 +4,7 @@ Package.describe({
   name: 'hacknlove:blaze-admin-layout',
   version: '0.0.1',
   // Brief, one-line summary of the package.
-  summary: '',
+  summary: 'Es un helper para montar el layout y las rutas de un panel de administracións',
   // URL to the Git repository containing the source code for this package.
   git: 'git@hacknlove.github.com:hacknlove/blaze-admin-layout.git',
   // By default, Meteor will default to using README.md for documentation.
@@ -15,7 +15,7 @@ Package.describe({
 Package.onUse(function (api) {
   api.versionsFrom('1.7.0.5')
   api.use('ecmascript')
-  api.use('templating', 'client')
+  api.use('templating@1.0.0', 'client')
   api.use('less', 'client')
   api.addFiles('./hnlAdminLayout.html', 'client')
   api.addFiles('./hnlAdminLayout.less', 'client')
